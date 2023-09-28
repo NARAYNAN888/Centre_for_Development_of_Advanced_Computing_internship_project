@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+  }
+</style>
+<body bgcolor="#B2BEB5">
+{% block content %}
+
+<form method="POST" action=" {% url 'db' %} " id="hgh" ></form>
+{% csrf_token %}
+<table>
+<tr><center><h1>video comments</h1></center></tr>
+<tr><center><h3>total comments:{{sss}}</h3><br><h3><a href="{% url 'sort8' %}">&#128528;:{{sb1}}</a><a href="{% url 'sort9' %}">&#128528;:{{sb2}}</a><a href="{% url 'sort10' %}">&#128528;:{{sb3}}</a></h3></center></tr>
+<tr>
+    <th>user</th>
+    <th>comment</th>
+    <th>time</th>
+    <th>like</th>
+    <th><button onclick="location.href='{% url 'csort' %}'">recount</button></th>
+</tr>
+{% for i in list2 %}
+<tr>
+    <td>{{i.n}}</td>
+    <td>{{i.c}}</td>
+    <td>{{i.d}}</td>
+    <td>{{i.l}}</td>
+    <td>{{i.r}}</td>
+</tr>
+{% endfor %}
+</table>
+
+
+{% endblock %}
+</body>
+</html>

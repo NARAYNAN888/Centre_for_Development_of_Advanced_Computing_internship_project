@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+  }
+</style>
+<body bgcolor="#B2BEB5">
+{% block content %}
+
+<form method="POST" action=" {% url 'db' %} " id="hgh" >
+{% csrf_token %}
+<table>
+<tr><center><h1>video info</h1></center></tr>
+{% if list2 %}
+<tr><th><h2>thumbnails:</h2></th><td><center><img src="{{list2.g}}" style="width: 700px" ></center></td></tr>
+<tr><th><h2>Channel Name:</h2></th><td><h3>{{list2.c}}</h3></td></tr>
+<tr><th><h2>Title:</h2></th><td><h3>{{list2.a}}</h3></td></tr>
+<tr><th><h2>Keywords:</h2></th><td><h3>{{list2.e}}</h3></td></tr>
+<tr><th><h2>Views:</h2></th><td><h3>{{list2.o}}</h3></td></tr>
+<tr><th><h2>Date:</h2></th><td><h3>{{list2.b}}</h3></td></tr>
+<tr><th><h2>Captions:</h2></th><td><h3>{{list2.j}}</h3></td></tr>
+<tr><th><h2>Likes:</h2></th><td><h3>{{list2.p}}</h3></td></tr>
+<tr><th><h2>Description:</h2></th><td><h3>{{list2.d}}</h3></td></tr>
+<tr><th><h2>categoryId:</h2></th><td><h3>{{list2.f}}</h3></td></tr>
+<tr><th><h2>duration:</h2></th><td><h3>{{list2.i}}</h3></td></tr>
+<tr><th><h2>licensedContent:</h2></th><td><h3>{{list2.k}}</h3></td></tr>
+<tr><th><h2>contentRating:</h2></th><td><h3>{{list2.l}}</h3></td></tr>
+<tr><th><h2>CommentCount:</h2></th><td><h3>{{list2.q}}</h3></td></tr>
+<tr><button type="submit" name="trt" value="{{g.video_id}}" form="hgh" style="float: right;">SAVE</button></tr>
+{% endif %}
+</table>
+</form>
+<!-- <a onclick="location.href='{{list2.g}}'" target="_blank">{{list2.g}}</a> -->
+{% endblock %}
+</body>
+</html>
