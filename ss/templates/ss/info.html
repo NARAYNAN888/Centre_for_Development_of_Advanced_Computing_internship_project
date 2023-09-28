@@ -1,0 +1,98 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+</head>
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+  }
+  .loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<body style="background-color:#B2BEB5">
+{% block content %}
+
+<form method="POST" action=" {% url 'db' %} " id="hgh">
+{% csrf_token %}
+<!--<center><div class="loader" name="onload"  ></center> </div>-->
+<!--<div id="naen">-->
+<table>
+<tr><center><h1>video info</h1></center></tr>
+{% if g %}
+<tr><th><h2>Image:</h2></th><td><h3><img src="{{g.img}}" width="700px" ></h3></td></tr>
+<tr><th><h2>Channel Name:</h2></th><td><h3>{{g.author}}</h3></td></tr>
+<tr><th><h2>Title:</h2></th><td><h3>{{g.title}}</h3></td></tr>
+<tr><th><h2>Keywords:</h2></th><td><h3>{{g.keywords}}</h3></td></tr>
+<tr><th><h2>Views:</h2></th><td><h3>{{g.views}}</h3></td></tr>
+<tr><th><h2>Date:</h2></th><td><h3>{{g.date}}</h3></td></tr>
+<tr><th><h2>Captions:</h2></th><td><h3>{{g.caption}}</h3></td></tr>
+<tr><th><h2>Details:</h2></th><td><h3>{{g.channel_url}}</h3></td></tr>
+<tr><button type="submit" name="trt" value="{{g.video_id}}" form="hgh" style="float: right;">SAVE</button></tr>
+{% endif %}
+</table>
+</form>
+<!--</div>-->
+<script>
+
+     $(function(){
+    $('div[naen]').trigger('naen');
+});
+
+    $(document).ready( function () {
+
+    $.fn.dataTable.moment( 'MMM D, YYYY' );
+    $.fn.dataTable.moment( '' );
+    $.fn.dataTable.moment( 'D-MMM-YY' );
+    $('#table_id').DataTable({
+
+    dom: 'B<"clear">lfrtip',
+    buttons: {
+        name: 'primary',
+        buttons: [ 'copy', 'csv', 'excel', 'pdf' ]
+
+        }}
+    );
+} );
+</script>
+
+{% endblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.js"></script>
+<!-- needed to use moment.js for our date sorting-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>
+
+
+
+<!-- the second way to do it to integrate our buttons for export-->
+
+
+</body>
+</html>

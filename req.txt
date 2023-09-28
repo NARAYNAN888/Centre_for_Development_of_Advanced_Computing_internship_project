@@ -1,0 +1,7 @@
+django
+djongo
+mongoengine
+google-api-python-client
+textblob
+pytube
+django-bootstrap-form
