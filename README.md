@@ -1,2 +1,3 @@
 # Centre_for_Development_of_Advanced_Computing_internship_project
-C-DAC: Centre for Development of Advanced Computing, India Centre for Development of Advanced Computing - chennai 2022 - 2022 Master of Science in Data Science 2022-2024 7.08 CGPA 2/107 Allur agaharam Trichy 620101 We have done web scraping of youtube and viewed it in the Django web framework from that we have to report the data to the government.
+C-DAC: Centre for Development of Advanced Computing, India Centre for Development of Advanced Computing - chennai 2022 - 2022 
+
